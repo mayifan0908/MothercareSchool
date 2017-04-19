@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TabHost
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/tabhost">
+
+    <LinearLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@android:id/tabcontent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+            <!--三个页面中第一个页面-->
+            <LinearLayout
+                android:id="@+id/layout1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#fff"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+
+                    <ImageView
+                        android:id="@+id/ss"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:src="@drawable/icon_main_search"
+                        android:onClick="onClick"/>
+
+                    <ImageView
+                        android:id="@+id/bj"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:onClick="onClick"
+                        android:src="@drawable/icon_main_edit_method" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_toLeftOf="@id/bj"
+                        android:layout_toRightOf="@id/ss"
+                        android:gravity="center"
+                        android:text="首页"
+                        android:textColor="#302f2f"
+                        android:textSize="15sp" />
+
+                </RelativeLayout>
+<!--可滑动部分-->
+                <com.yf.fengmai.mothercareschool.recyclerview.RefreshLayout
+                    android:id="@+id/main_refreshLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <com.jude.rollviewpager.RollPagerView
+                            android:id="@+id/mrollview"
+                            android:layout_width="match_parent"
+                            android:layout_height="160dp"></com.jude.rollviewpager.RollPagerView>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="#fff"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <Button
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="40dp"
+                                android:background="@null"
+                                android:drawableLeft="@drawable/icon_main_classify"
+                                android:text="分类"
+                                android:textColor="#302f2f" />
+
+                            <TextView
+                                android:layout_width="1dp"
+                                android:layout_height="20dp"
+                                android:background="#444844" />
+
+                            <Button
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="40dp"
+                                android:background="#00000000"
+                                android:drawableLeft="@drawable/icon_main_task"
+                                android:text="日常任务"
+                                android:textColor="#302f2f" />
+                        </LinearLayout>
+                        <!--recyclerview布局-->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="300dp"
+                            android:background="#e1dbdc"
+                            android:orientation="vertical">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp"
+                                android:orientation="horizontal">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="20dp"
+                                    android:text="|"
+                                    android:textSize="20sp"
+                                    android:textStyle="bold"
+                                    android:textColor="#f45f6e"
+                                    />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:textColor="#554f4f"
+                                    android:textSize="16sp"
+                                    android:text="推荐达人"/>
+                            </LinearLayout>
+                            <android.support.v7.widget.RecyclerView
+                                android:id="@+id/hrv"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                />
+                        </LinearLayout>
+                        <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                            android:gravity="center"
+                        android:orientation="vertical">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp"
+                                android:orientation="horizontal">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="20dp"
+                                    android:text="|"
+                                    android:textSize="20sp"
+                                    android:textStyle="bold"
+                                    android:textColor="#f45f6e"
+                                    />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:textColor="#554f4f"
+                                    android:textSize="16sp"
+                                    android:text="热门专题"/>
+                            </LinearLayout>
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/vrv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            />
+                            <TextView
+                                android:gravity="center_horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="#655e5e"
+                                android:textSize="16sp"
+                                android:text="往期回顾 >"/>
+                    </LinearLayout>
+
+                    </LinearLayout>
+
+                </com.yf.fengmai.mothercareschool.recyclerview.RefreshLayout>
+
+      </LinearLayout>
+
+            <!--第二个选项卡-->
+            <LinearLayout
+                android:id="@+id/layout2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="#fff">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:background="#fff"
+                    >
+                    <RadioGroup
+                        android:id="@+id/rg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+                        <RadioButton
+                            android:id="@+id/rb_1"
+                            android:gravity="center"
+                            android:text="热门"
+                            android:textColor="#858484"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@null"
+                            android:drawableBottom="@drawable/bt_isnochecked"/>
+                        <RadioButton
+                            android:id="@+id/rb_2"
+                            android:gravity="center"
+                            android:text="圈子"
+                            android:textColor="#858484"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@null"
+                            android:drawableBottom="@drawable/bt_isnochecked"/>
+                    </RadioGroup>
+
+                </LinearLayout>
+                <FrameLayout
+                    android:id="@+id/rg_frame"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="11"
+                    android:background="#fff"></FrameLayout>
+            </LinearLayout>
+            <!--第三个选项卡-->
+            <LinearLayout
+                android:id="@+id/layout3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#fff"
+                android:orientation="vertical">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000"
+                    android:text="个人信息"
+                    android:background="@null"
+                    android:drawableLeft="@drawable/ic_launcher"/>
+                <RadioGroup
+                    android:layout_marginTop="30dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <RadioButton
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000"
+                        android:text="我发布的"
+                        android:drawableTop="@drawable/icon_user_release"/>
+                    <RadioButton
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000"
+                        android:text="我的微课"
+                        android:drawableTop="@drawable/icon_user_podcast"/>
+                    <RadioButton
+                        android:gravity="center"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000"
+                        android:text="订单"
+                        android:drawableTop="@drawable/icon_user_record"/>
+                    <RadioButton
+                        android:gravity="center"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000"
+                        android:text="收藏"
+                        android:drawableTop="@drawable/icon_method_toolbar_collect"/>
+                </RadioGroup>
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:textColor="#000"
+                    android:background="#fff"
+                    android:text="我加入的圈子       >"/>
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000"
+                    android:layout_marginTop="10dp"
+                    android:background="#fff"
+                    android:text="活动               >"/>
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000"
+                    android:layout_marginTop="10dp"
+                    android:background="#fff"
+                    android:text="消息               >"/>
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000"
+                    android:layout_marginTop="10dp"
+                    android:background="#fff"
+                    android:text="意见反馈          >"/>
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000"
+                    android:layout_marginTop="10dp"
+                    android:background="#fff"
+                    android:text="设置               >"/>
+            </LinearLayout>
+        </FrameLayout>
+        <!--选项卡按钮-->
+        <TabWidget
+            android:id="@android:id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff"></TabWidget>
+    </LinearLayout>
+</TabHost>
